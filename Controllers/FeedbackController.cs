@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NettlyWebAppMVCProject.Models; // Ensure this namespace contains FeedbackViewModel
+using testNettly.web.Models; // Ensure this namespace contains FeedbackViewModel
 
 public class FeedbackController : Controller
 {

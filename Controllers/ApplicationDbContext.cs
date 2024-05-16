@@ -1,4 +1,4 @@
-﻿namespace NettlyWebAppMVCProject.Controllers
+﻿namespace testNettly.web.Controllers
 {
     public class ApplicationDbContext
     {

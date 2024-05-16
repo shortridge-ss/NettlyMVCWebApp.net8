@@ -24,13 +24,23 @@
         <!-- Feedback List -->
         <div class="feedback-list-container" id="feedbackList">
             @foreach (var feedback in Model)
-            {
-                <div class="feedback-item" data-id="@feedback.Id">
-                    <span class="feedback-title">Feedback #@feedback.Id (@feedback.Username)</span>
-                    <span class="feedback-rating">Rating: @feedback.Score</span>
-                    <p>@feedback.Comment</p>
-                </div>
-            }
+            
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var feedbackItem in Model)
+                    {
+                        <div class="feedback-item" data-id="@feedback.Id">
+                            <span class="feedback-title">Feedback #@feedback.Id (@feedback.Username)</span>
+                            <span class="feedback-rating">Rating: @feedback.Score</span>
+                            <p>@feedback.Comment</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No feedback available</p>
+                }
+
         </div>
 
         <!-- Edit Button -->
