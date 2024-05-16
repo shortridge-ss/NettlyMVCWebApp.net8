@@ -1,0 +1,31 @@
+﻿@model IEnumerable<NettlyWebAppMVCProject.Models.FeedbackViewModel>
+
+@{
+    ViewData["Title"] = "Feedback List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-3">
+    <h2>Feedback List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Feedback ID</th>
+                <th>Username</th>
+                <th>Comment</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feedback in Model)
+            {
+                <tr>
+                    <td>@feedback.Id</td>
+                    <td>@feedback.Username</td>
+                    <td>@feedback.Comment</td>
+                    <td>@feedback.Rating</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

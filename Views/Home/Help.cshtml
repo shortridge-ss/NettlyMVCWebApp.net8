@@ -1,0 +1,183 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Help & Support";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .help-page {
+            background: url('/images/background_image_with_man.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            text-align: center;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+
+        .help-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .header img {
+                height: 40px;
+            }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-icons i {
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .help-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+            .help-list h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #007bff;
+            }
+
+            .help-list ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .help-list ul li {
+                    margin-bottom: 15px;
+                }
+
+                    .help-list ul li strong {
+                        font-size: 16px;
+                        color: #333;
+                    }
+
+                    .help-list ul li p {
+                        font-size: 14px;
+                        color: #666;
+                        margin: 5px 0 0 20px;
+                    }
+
+        .btn-back {
+            background: #f8f9fa;
+            color: #333;
+            border: 1 px solid #cccccc;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn-back:hover {
+                background: #e2e6ea;
+            }
+
+        .btn {
+            background: #007bff;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn:hover {
+                background: #0056b3;
+            }
+    </style>
+
+
+</head>
+<body>
+    <div class="help-page">
+        <div class="header">
+            <img src="/images/logo.png" alt="Nettly Logo">
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-home"></i>
+                <i class="fas fa-cog"></i>
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="help-container">
+            <button class="btn-back" onclick="window.history.back()">Go Back</button>
+            <h1>Help & Support</h1>
+            <p>Here to assist you with any issues or queries you might have.</p>
+            <h3>Common Questions</h3>
+            <ul class="help-list">
+                <li>
+                    <strong>How do I reset my password?</strong>
+                    <p>Go to Settings > Account Settings > Change Password.</p>
+                </li>
+                <li>
+                    <strong>Who do I contact if I have trouble booking an appointment?</strong>
+                    <p>Please contact our support team via email at <a href="mailto:communications.nettly@nettly.com">communications.nettly@nettly.com</a> or call us at 1876-333-3333.</p>
+                </li>
+            </ul>
+
+            <h3>Technical Support</h3>
+            <ul class="help-list">
+                <li>
+                    <strong>What should I do if I experience a system error?</strong>
+                    <p>Please report the error through the <a href="~/Feedback">Feedback</a> page, including any error codes or messages displayed.</p>
+                </li>
+                <li>
+                    <strong>Is there online support available?</strong>
+                    <p>Yes, online support is available during business hours through live chat on our website.</p>
+                </li>
+            </ul>
+
+            <h3>More Help</h3>
+            <ul class="help-list">
+                <li>
+                    <strong>Can I speak directly with a technician?</strong>
+                    <p>Yes, you can request a call back from a technician by filling out the form on the Contact Us page or calling our main support line.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

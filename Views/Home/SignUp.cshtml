@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Sign Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="signup-container text-center" style="position: relative; min-height: 100vh; background: url('/images/nettlyman.png') no-repeat center center fixed; background-size: 1200px 700px;">
+    <div class="signup-form" style="background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 450px; margin: auto; position: absolute; top: 50%; left: 35%; transform: translate(-35%, -50%);">
+        <h2 style="font-size: 34px;">Sign up</h2>
+        <form asp-action="SignUp" asp-controller="Account" method="post">
+            <div class="form-group">
+                <label for="firstName" style="font-size: 18px;">First Name</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/firstname.png" alt="First Name Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="text" class="form-control" id="firstName" name="firstName" required style="height: 50px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" style="font-size: 18px;">Last Name</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/lastname.png" alt="Last Name Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="text" class="form-control" id="lastName" name="lastName" required style="height: 50px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" style="font-size: 18px;">Email</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/email.png" alt="Email Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="email" class="form-control" id="email" name="email" required style="height: 50px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobileNumber" style="font-size: 18px;">Mobile Number</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/mobilenumber.png" alt="Mobile Number Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="tel" class="form-control" id="mobileNumber" name="mobileNumber" required style="height: 50px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" style="font-size: 18px;">Password</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/password.png" alt="Password Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="password" class="form-control" id="password" name="password" required style="height: 50px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword" style="font-size: 18px;">Confirm Password</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/confirmpassword.png" alt="Confirm Password Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required style="height: 50px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username" style="font-size: 18px;">Create Username</label>
+                <div class="input-group">
+                    <img src="/images/signuppageicons/createusername.png" alt="Create Username Icon" style="height: 30px; margin-right: 10px;">
+                    <input type="text" class="form-control" id="username" name="username" required style="height: 50px;">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="font-size: 18px; padding: 10px 20px;">Submit</button>
+        </form>
+        <div style="font-size: 16px;">
+            <p>Sign up with:</p>
+            <button class="btn btn-info" style="padding: 10px 20px;">Google</button>
+            <button class="btn btn-info" style="padding: 10px 20px;">Facebook</button>
+        </div>
+        <div style="margin-top: 20px;">
+            <p>Already have an account?</p>
+            <a href="@Url.Action("SignIn", "Home")" class="btn btn-link">Sign in instead</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,183 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "FAQs";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .faq-page {
+            background: url('/images/background_image_with_man.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            text-align: center;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+
+        .faq-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .header img {
+                height: 40px;
+            }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-icons i {
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .faq-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+            .faq-list h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #007bff;
+            }
+
+            .faq-list ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .faq-list ul li {
+                    margin-bottom: 15px;
+                }
+
+                    .faq-list ul li strong {
+                        font-size: 16px;
+                        color: #333;
+                    }
+
+                    .faq-list ul li p {
+                        font-size: 14px;
+                        color: #666;
+                        margin: 5px 0 0 20px;
+                    }
+
+        .btn-back {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #cccccc;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn-back:hover {
+                background: #e2e6ea;
+            }
+    </style>
+</head>
+<body>
+    <div class="faq-page">
+        <div class="header">
+            <img src="/images/logo.png" alt="Nettly Logo">
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-home"></i>
+                <i class="fas fa-cog"></i>
+                
+            </div>
+        </div>
+        <div class="faq-container">
+            <button class="btn-back" onclick="window.history.back()">Go Back</button>
+            <h1>Frequently Asked Questions</h1>
+            <div class="faq-list">
+                <h3>Booking & Appointments</h3>
+                <ul>
+                    <li>
+                        <strong>How do I book an appointment?</strong>
+                        <p>You can book an appointment by using our  <a asp-controller="Home" asp-action="AppointmentBooking">Book Appointment</a> page.</p>
+                    </li>
+                    <li>
+                        <strong>Can I reschedule my appointment?</strong>
+                        <p>Yes, you can manage your appointments through the <a asp-controller="Home" asp-action="Booking">Manage Bookings</a> page.</p>
+                    </li>
+                    <li>
+                        <strong>Is there a waiting list if the time slot I want is booked?</strong>
+                        <p>Yes, if a time slot is booked, you can add yourself to the waiting list.</p>
+                    </li>
+                </ul>
+
+                <h3>Payments & Fees</h3>
+                <ul>
+                    <li>
+                        <strong>What payment methods do you accept?</strong>
+                        <p>We accept credit card payments and other digital payment methods.</p>
+                    </li>
+                    <li>
+                        <strong>Are there any fees for cancelling or rescheduling?</strong>
+                        <p>There are no fees for rescheduling. However, cancelling within 24 hours of your appointment may incur a fee.</p>
+                    </li>
+                </ul>
+
+                <h3>Feedback & Support</h3>
+                <ul>
+                    <li>
+                        <strong>How can I provide feedback?</strong>
+                        <p>You can provide feedback through the <a asp-controller="Home" asp-action="FeedbackCollection">Feedback Collection</a> page.</p>
+                    </li>
+                    <li>
+                        <strong>What support options are available?</strong>
+                        <p>You can find support options on the <a asp-controller="Home" asp-action="Help">Help</a> page.</p>
+                    </li>
+                </ul>
+
+                <h3>Technical Issues</h3>
+                <ul>
+                    <li>
+                        <strong>What should I do if I encounter a technical issue?</strong>
+                        <p>Please contact our support team at <a href="mailto:communications.nettly@nettly.com">communications.nettly@nettly.com</a> or call 1876-333-3333.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

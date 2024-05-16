@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container settings-page">
+    <h1>Settings</h1>
+
+    <!-- Profile Settings -->
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Profile Settings</h5>
+            <p class="card-text">Manage your profile settings here.</p>
+
+            <!-- Change Profile Picture -->
+            <div class="mb-3">
+                <label for="profileImage" class="form-label">Profile Picture</label>
+                <input type="file" class="form-control" id="profileImage">
+                <div class="form-text">Update your profile picture.</div>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="mb-3">
+                <label class="form-label">Theme</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="themeSwitch">
+                    <label class="form-check-label" for="themeSwitch">Dark Mode</label>
+                </div>
+                <div class="form-text">Toggle between light and dark modes.</div>
+            </div>
+
+            <!-- Change Password -->
+            <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password</label>
+                <input type="password" class="form-control" id="newPassword">
+                <div class="form-text">Change your password regularly to keep your account secure.</div>
+            </div>
+
+            <!-- Notifications Settings -->
+            <div class="mb-3">
+                <label class="form-label">Email Notifications</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                    <label class="form-check-label" for="emailNotifications">Enable Email Notifications</label>
+                </div>
+                <div class="form-text">Receive updates and notifications directly to your email.</div>
+            </div>
+
+            <!-- Save Button -->
+            <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+    </div>
+
+    <!-- Help Section -->
+    <div class="card mt-3 mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Need Help?</h5>
+            <p class="card-text">If you have any questions about the settings or need further assistance, please contact our support team.</p>
+            <a href="@Url.Action("Contact", "Home")" class="btn btn-link">Contact Support</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#themeSwitch').on('change', function () {
+            $('body').toggleClass('dark-mode');
+        });
+
+        // Save settings logic here
+    });
+</script>
+
+<style>
+    .settings-page {
+        background: url('') no-repeat center center fixed;
+        background-size: cover;
+        padding: 20px;
+    }
+
+    .dark-mode {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        padding: 20px;
+    }
+</style>

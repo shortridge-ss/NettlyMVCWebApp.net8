@@ -1,0 +1,208 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Contact Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .contact-page {
+            background: url('/images/background_image_with_man.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            text-align: center;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .header img {
+                height: 40px;
+            }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-icons i {
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+            .contact-list h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #007bff;
+            }
+
+            .contact-list ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .contact-list ul li {
+                    margin-bottom: 15px;
+                }
+
+                    .contact-list ul li strong {
+                        font-size: 16px;
+                        color: #333;
+                    }
+
+                    .contact-list ul li p {
+                        font-size: 14px;
+                        color: #666;
+                        margin: 5px 0 0 20px;
+                    }
+
+        .feedback-textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #cccccc;
+            resize: none;
+            height: 100px;
+        }
+
+        .btn-back {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #cccccc;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn-back:hover {
+                background: #e2e6ea;
+            }
+
+        .btn {
+            background: #007bff;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn:hover {
+                background: #0056b3;
+            }
+
+        form div {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        form label {
+            display: inline-block;
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #cccccc;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-page">
+        <div class="header">
+            <img src="/images/logo.png" alt="Nettly Logo">
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-home"></i>
+                <i class="fas fa-cog"></i>
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="contact-container">
+            <button class="btn-back" onclick="window.history.back()">Go Back</button>
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+            <ul class="contact-list">
+                <li><strong>Phone:</strong> 1876-333-3333</li>
+                <li><strong>Email:</strong> <a href="mailto:communications.nettly@nettly.com">communications.nettly@nettly.com</a></li>
+                <li><strong>Address:</strong> PO Box 235 Industrial Terrace, Kingston, Jamaica</li>
+            </ul>
+
+            <h3>Contact Form</h3>
+            <form method="post" action="/Contact/Submit">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send</button>
+            </form>
+
+            <h3>Office Hours</h3>
+            <ul class="contact-list">
+                <li><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</li>
+                <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
+                <li><strong>Sunday:</strong> Closed</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

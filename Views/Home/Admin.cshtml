@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Administration View";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Side Navigation -->
+        <div class="col-md-3">
+            <ul class="nav flex-column">
+                <li class="nav-item"><button class="btn btn-info w-100 my-1">All Users</button></li>
+                <li class="nav-item"><button class="btn btn-info w-100 my-1">All Bookings</button></li>
+                <li class="nav-item"><button class="btn btn-info w-100 my-1">All Credentials</button></li>
+                <li class="nav-item"><button class="btn btn-info w-100 my-1">All Feedback</button></li>
+            </ul>
+        </div>
+
+        <!-- Middle Content Area -->
+        <div class="col-md-6">
+            <div id="contentArea" class="p-3" style="height: 500px; overflow-y: scroll;">
+                <!-- Dynamic content based on selection will be displayed here -->
+            </div>
+            <div>
+                <button class="btn btn-secondary">Home</button>
+                <button class="btn btn-danger" onclick="clearContent()">Clear</button>
+            </div>
+        </div>
+
+        <!-- Right Side Actions -->
+        <div class="col-md-3">
+            <div class="d-flex flex-column align-items-stretch">
+                <button class="btn btn-primary my-1">Edit Details</button>
+                <button class="btn btn-danger my-1">Delete Entry</button>
+                <button class="btn btn-success my-1">Add Entry</button>
+                <button class="btn btn-warning my-1">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function clearContent() {
+            document.getElementById('contentArea').innerHTML = '';
+        }
+    </script>
+}

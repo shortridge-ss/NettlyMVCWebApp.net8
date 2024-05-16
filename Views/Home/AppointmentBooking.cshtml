@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = "Book an Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <style>
+        .appointment-booking-page {
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+            background: url('/images/cloud-sky-blue-background.png') no-repeat center center fixed;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .calendar-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .booking-details {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+
+        .time-slot-container, .additional-details-container {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-slot-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+
+        .time-slot {
+            padding: 10px;
+            background: lightblue;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+            .time-slot.selected {
+                background: #00aaff;
+                color: #fff;
+            }
+
+        .booking-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-discard {
+            background: #ffcc00;
+            color: #fff;
+        }
+
+        .btn-cancel {
+            background: #f44336;
+            color: #fff;
+        }
+
+        .btn-book {
+            background: #4caf50;
+            color: #fff;
+        }
+
+        .booking-actions-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="appointment-booking-page">
+        <!-- Calendar Container -->
+        <div class="calendar-container">
+            <h3>Book an appointment</h3>
+            <p>Select a date slot below and then an available period.</p>
+            <input type="text" id="datepicker" class="form-control" placeholder="Select Date">
+        </div>
+
+        <!-- Booking Details Container -->
+        <div class="booking-details">
+            <h2>Today's Booking</h2>
+            <div class="booking-actions">
+                <button class="btn btn-discard">Discard</button>
+                <button class="btn btn-cancel" asp-controller="Home" asp-action="BookingDisplay">Cancel</button>
+            </div>
+
+            <div class="time-slot-container">
+                <h4>Select Available period</h4>
+                <div class="time-slot-grid">
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <div class="time-slot">@i AM</div>
+                    }
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <div class="time-slot">@i PM</div>
+                    }
+                    }
+                </div>
+
+                <div class="time-slot-container">
+                    <h4>Select end time</h4>
+                    <div class="time-slot-grid">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <div class="time-slot">@i AM</div>
+                        }
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <div class="time-slot">@i PM</div>
+                        }
+                        }
+                    </div>
+
+                    <div class="additional-details-container">
+                        <h4>Enter Appointment Details</h4>
+                        <textarea style="width: 100%; height: 100px;"></textarea>
+                    </div>
+
+                    <div class="booking-actions-container">
+                        <button class="btn btn-book">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    flatpickr("#datepicker", {
+                        dateFormat: "m/d/Y",
+                        wrap: false,
+                        altInput: true,
+                        altFormat: "F j, Y"
+                    });
+
+                    $(".time-slot").on("click", function () {
+                        $(".time-slot").removeClass("selected");
+                        $(this).addClass("selected");
+                    });
+
+                    $(".btn-discard").on("click", function () {
+                        $(".time-slot").removeClass("selected");
+                        flatpickr("#datepicker").clear();
+                        $("textarea").val("");
+                    });
+                });
+            </script>
+</body>
+</html>

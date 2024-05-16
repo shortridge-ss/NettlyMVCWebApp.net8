@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NettlyWebAppMVCProject</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background: url('/images/cloud-sky-blue-background.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+            color: #232323;
+        }
+
+        #menuToggle {
+            display: block;
+            position: fixed;
+            top: 50px;
+            left: 30px;
+            z-index: 1;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+            #menuToggle a {
+                text-decoration: none;
+                color: #232323;
+                transition: color 0.3s ease;
+            }
+
+                #menuToggle a:hover {
+                    color: tomato;
+                }
+
+            #menuToggle input {
+                display: block;
+                width: 40px;
+                height: 32px;
+                position: absolute;
+                top: -7px;
+                left: -5px;
+                cursor: pointer;
+                opacity: 0; /* hide this */
+                z-index: 2; /* and place it over the hamburger */
+            }
+
+            #menuToggle span {
+                display: block;
+                width: 33px;
+                height: 4px;
+                margin-bottom: 5px;
+                position: relative;
+                background: #cdcdcd;
+                border-radius: 3px;
+                z-index: 1;
+                transform-origin: 4px 0px;
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
+            }
+
+        #menu {
+            position: absolute;
+            width: 300px;
+            margin: -50px 0 0 -50px;
+            padding: 50px;
+            padding-top: 125px;
+            background: rgba(255, 255, 255, 0.95);
+            list-style-type: none;
+            transform-origin: 0% 0%;
+            transform: translate(-100%, 0);
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        }
+
+            #menu li {
+                padding: 10px 0;
+                font-size: 18px;
+            }
+
+        #menuToggle input:checked ~ ul {
+            transform: none;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="AppointmentBooking">Book Appointment</a></li>
+                <li><a asp-controller="Home" asp-action="Booking">Manage Your Bookings</a></li>
+                <li><a asp-controller="Feedback" asp-action="Feedback">Feedback</a></li>
+                <li><a asp-controller="Feedback" asp-action="FeedbackCollection">Feedback Collection</a></li>
+                <li><a asp-controller="Home" asp-action="FAQs">FAQs</a></li>
+                <li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
+                <li><a asp-controller="Home" asp-action="Help">Help/Support</a></li>
+                <li><a asp-controller="Home" asp-action="Admin">Admin Login</a></li>
+                <li><a asp-controller="Home" asp-action="Settings">Settings</a></li>
+                <li><a asp-controller="Home" asp-action="Logout">Logout</a></li>
+                <li><a asp-controller="Home" asp-action="Exit">Exit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 - The Nettly Company. All Rights Reserved - <a href="/Privacy">Privacy</a>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

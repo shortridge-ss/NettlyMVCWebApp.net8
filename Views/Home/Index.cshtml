@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <img src="/images/logo.png" alt="Nettly Logo" style="width: 600px; margin-bottom: 80px;">
+    <h1 style="font-weight: bolder;">Welcome to Nettly!</h1>
+    <p>
+        At Nettly, we streamline the process of scheduling and managing appointments, making it simple and efficient for both businesses and their clients. Our advanced booking system is designed to enhance user experience by offering a comprehensive suite of tools that facilitate easy booking, timely reminders, and efficient calendar management. Whether you're a small business owner or a large corporation, Nettly is tailored to meet your specific needs, helping you stay organized and focused on what really matters – your clients and their satisfaction. Embrace the ease of Nettly and transform the way you manage your appointments today!
+    </p>
+    <div class="row mt-4">
+        <div class="col">
+            <form action="@Url.Action("SignIn", "Home")" method="get">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+        </div>
+        <div class="col">
+            <form action="@Url.Action("SignUp", "Home")" method="get">
+                <button type="submit" class="btn btn-secondary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>

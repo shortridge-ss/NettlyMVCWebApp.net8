@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Customer Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="feedback-page">
+    <!-- Header -->
+    <div class="header">
+        <img src="/images/nettly_logo.png" alt="Nettly Logo" onclick="window.location.href='@Url.Action("Index", "Home")'">
+        <div class="header-icons">
+            <i class="fas fa-search" onclick="window.location.href='@Url.Action("Index", "Home")'"></i>
+            <i class="fas fa-home" onclick="window.location.href='@Url.Action("Index", "Home")'"></i>
+            <i class="fas fa-cog"></i>
+        </div>
+    </div>
+
+    <!-- Feedback Container -->
+    <div class="feedback-container">
+        <button class="btn-back" onclick="window.history.back()">Go Back</button>
+        <h1>Customer Feedback</h1>
+        <p>What our customers are saying</p>
+        <button class="btn" onclick="window.location.href='@Url.Action("FeedbackCollection", "Feedback")'">Create Feedback</button>
+
+        <!-- Feedback List -->
+        <div class="feedback-list-container" id="feedbackList">
+            @foreach (var feedback in Model)
+            {
+                <div class="feedback-item" data-id="@feedback.Id">
+                    <span class="feedback-title">Feedback #@feedback.Id (@feedback.Username)</span>
+                    <span class="feedback-rating">Rating: @feedback.Score</span>
+                    <p>@feedback.Comment</p>
+                </div>
+            }
+        </div>
+
+        <!-- Edit Button -->
+        <div class="feedback-edit-buttons">
+            <button class="btn btn-edit" id="editButton" style="display:none;" onclick="editFeedback()">Edit</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.feedback-item').forEach(item => {
+        item.addEventListener('click', function () {
+            document.querySelectorAll('.feedback-item').forEach(el => el.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('editButton').style.display = 'block';
+        });
+    });
+
+    function editFeedback() {
+        const selectedFeedback = document.querySelector('.feedback-item.selected');
+        const feedbackId = selectedFeedback ? selectedFeedback.getAttribute('data-id') : null;
+        if (feedbackId) {
+            window.location.href = `@Url.Action("FeedbackCollection", "Feedback")?id=${feedbackId}`;
+        }
+    }
+</script>

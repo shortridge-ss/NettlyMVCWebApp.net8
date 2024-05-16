@@ -1,0 +1,228 @@
+﻿@{
+    ViewData["Title"] = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%; 
+            margin: 0; /* Remove default margin */
+        }
+
+        .feedback-page {
+            background: url('/images/background_image_with_man.png') no-repeat center center fixed;
+            background-size: cover; /* Cover the entire space */
+            min-height: 100vh; /* Minimum height to 100% of the viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            text-align: center;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+
+        .feedback-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .header img {
+                height: 40px;
+            }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-icons i {
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .nps-scale {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+            .nps-scale button {
+                background: #ffffff;
+                border: 2px solid #cccccc;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: 0.2s;
+            }
+
+                .nps-scale button.selected {
+                    background: #007bff;
+                    border-color: #007bff;
+                    color: #ffffff;
+                }
+
+        .feedback-textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #cccccc;
+            resize: none;
+            height: 100px;
+        }
+
+        .feedback-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .btn {
+            background: #007bff;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn:hover {
+                background: #0056b3;
+            }
+
+        .btn-skip {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #cccccc;
+        }
+
+            .btn-skip:hover {
+                background: #e2e6ea;
+            }
+
+        .btn-back {
+            background: #f8f9fa;
+            .btn-back:hover
+
+        {
+            background: #e2e6ea;
+        }
+
+        .nps-descriptions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-page">
+        <!-- Header -->
+        <div class="header">
+            <img src="/images/logo.png" alt="Nettly Logo" onclick="location.href='@Url.Action("Index", "Home")';">
+            <div class="header-icons">
+                <!-- Search Icon -->
+                <i class="fas fa-search" onclick="showSearchBar();"></i>
+                <!-- Home Icon -->
+                <i class="fas fa-home" onclick="location.href='@Url.Action("Index", "Home")';"></i>
+                <!-- Settings Icon -->
+                <i class="fas fa-cog" onclick="location.href='@Url.Action("Settings", "Home")';"></i>
+            </div>
+        </div>
+
+        <!-- Feedback Container -->
+        <div class="feedback-container">
+            <button class="btn-back" onclick="window.history.back()">Go Back</button>
+            <h1>Your Opinion Matters</h1>
+            <p>
+                We are always looking for ways to improve your experience.<br>
+                Please take a moment to evaluate and tell us what you think.
+            </p>
+
+            <!-- NPS Scale -->
+            <div class="nps-scale">
+                @for (int i = 1; i <= 10; i++)
+                {
+                    <button type="button" class="nps-button" data-value="@i">@i</button>
+                }
+            </div>
+
+            <!-- NPS Descriptions -->
+            <div class="nps-descriptions">
+                <span>Bad</span>
+                <span>Good</span>
+                <span>Awesome</span>
+            </div>
+
+            <!-- Feedback Text Area -->
+            <textarea class="feedback-textarea" placeholder="What can we do to improve your experience?"></textarea>
+
+            <!-- Feedback Buttons -->
+            <div class="feedback-buttons">
+                <button class="btn btn-submit">Submit</button>
+                <button class="btn btn-skip">Skip</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // NPS Button Selection Logic
+        document.querySelectorAll('.nps-button').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.nps-button').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Additional JavaScript for submitting and skipping feedback
+    </script>
+
+    <script>
+        // Optional: JavaScript for Search Bar (to be implemented)
+        function showSearchBar() {
+            // Logic to show or focus a search input field
+        }
+    </script>
+
+
+</body>
+</html>

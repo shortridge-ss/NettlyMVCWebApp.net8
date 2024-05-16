@@ -1,0 +1,155 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "About Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .about-page {
+            background: url('/images/background_image_with_man.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            text-align: center;
+            font-family: "Avenir Next", "Avenir", sans-serif;
+        }
+
+        .about-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 500px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .header img {
+                height: 40px;
+            }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-icons i {
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .about-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+            .about-list h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #007bff;
+            }
+
+            .about-list ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .about-list ul li {
+                    margin-bottom: 15px;
+                }
+
+                    .about-list ul li strong {
+                        font-size: 16px;
+                        color: #333;
+                    }
+
+                    .about-list ul li p {
+                        font-size: 14px;
+                        color: #666;
+                        margin: 5px 0 0 20px;
+                    }
+
+        .btn-back {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #cccccc;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .btn-back:hover {
+                background: #e2e6ea;
+            }
+    </style>
+</head>
+<body>
+    <div class="about-page">
+        <div class="header">
+            <img src="/images/logo.png" alt="Nettly Logo">
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-home"></i>
+                <i class="fas fa-cog"></i>
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="about-container">
+            <button class="btn-back" onclick="window.history.back()">Go Back</button>
+            <h1>About Us</h1>
+            <p>Welcome to Nettly's Advanced Appointment Booking System! Our goal is to streamline appointment management and provide an efficient booking experience for both businesses and customers.</p>
+
+            <h3>Our Mission</h3>
+            <p>We aim to revolutionize the way people book appointments by offering a user-friendly platform that simplifies the entire process.</p>
+
+            <h3>Our Values</h3>
+            <ul>
+                <li><strong>Efficiency:</strong> We strive to make appointment scheduling quick and hassle-free.</li>
+                <li><strong>Customer Focus:</strong> We prioritize customer satisfaction with user-friendly features and seamless booking.</li>
+                <li><strong>Innovation:</strong> We continuously innovate to offer advanced booking solutions.</li>
+                <li><strong>Accessibility:</strong> Our platform is designed to be inclusive and accessible to all.</li>
+            </ul>
+
+            <h3>Meet the Team</h3>
+            <ul>
+                <li><strong>Aisha McFarlane:</strong> Project Manager</li>
+                <li><strong>Sheldon Shortridge:</strong> Development Director</li>
+                <li><strong>Joevan Duhaney:</strong> UI/UX and Web Director</li>
+                <li><strong>Shayne Gregory:</strong> Head of Marketing</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
