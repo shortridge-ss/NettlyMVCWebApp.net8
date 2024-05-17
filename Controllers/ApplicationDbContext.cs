@@ -1,7 +1,22 @@
-﻿namespace testNettly.web.Controllers
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace testNettly.web.Controllers
 {
-    public class ApplicationDbContext
+    
+    public class ApplicationDbContext : DbContext
     {
-        internal object Feedbacks;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+
+        public DbSet<Feedback> Feedbacks { get; set; }
+    }
+
+    public class Feedback
+    {
+        internal string Username;
+        internal int Id;
+        internal string Comment;
+        internal object Score;
     }
 }

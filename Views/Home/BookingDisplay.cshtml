@@ -17,54 +17,56 @@
 
     .user-profile {
         background: rgba(255, 255, 255, 0.85);
-        padding: 20px;
+        padding: 30px; /* Increased padding */
         border-radius: 15px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: 220px;
+        width: 300px; /* Increased width */
         margin-right: 20px;
         text-align: center;
+        margin-bottom: 20px; /* Added margin for responsive design */
     }
 
     .profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 120px; /* Increased size */
+        height: 120px;
         border-radius: 50%;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 
     .user-details p {
-        margin: 5px 0;
-        font-size: 14px;
+        margin: 10px 0; /* Increased margin */
+        font-size: 16px; /* Increased font size */
     }
 
     .search-bar {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px;
+        gap: 15px;
+        padding: 15px; /* Increased padding */
         margin-bottom: 20px;
         background: rgba(255, 255, 255, 0.85);
         border-radius: 15px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        width: calc(100% - 260px);
+        width: calc(100% - 340px); /* Adjusted width */
         justify-content: space-between;
     }
 
         .search-bar input {
             flex-grow: 1;
-            padding: 10px;
+            padding: 12px; /* Increased padding */
             border: none;
             outline: none;
             border-radius: 15px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 16px; /* Increased font size */
         }
 
-        .fas, .search-bar i {
+        .search-bar i {
             cursor: pointer;
-            padding: 5px 8px;
+            padding: 10px;
             background: #e6f7ff;
             border-radius: 50%;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -72,7 +74,7 @@
 
     .booking-details {
         background: rgba(255, 255, 255, 0.85);
-        padding: 15px;
+        padding: 30px; /* Increased padding */
         border-radius: 15px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         flex: 1;
@@ -81,29 +83,31 @@
     }
 
     .title {
-        font-size: 24px;
+        font-size: 28px; /* Increased font size */
         font-weight: bold;
-        margin-bottom: 15px;
+        margin-bottom: 20px; /* Increased margin */
     }
 
     .subtitle {
-        font-size: 18px;
+        font-size: 22px; /* Increased font size */
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 15px; /* Increased margin */
     }
 
     .buttons-container {
         display: flex;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 20px; /* Increased gap */
+        margin-top: 20px; /* Increased margin */
     }
 
     .btn {
-        padding: 8px 15px;
+        padding: 12px 20px; /* Increased padding */
         border: none;
-        border-radius: 20px;
+        border-radius: 25px; /* Adjusted border radius */
         cursor: pointer;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 16px; /* Increased font size */
+        transition: background-color 0.3s;
     }
 
     .btn-back {
@@ -111,26 +115,47 @@
         color: #fff;
     }
 
+        .btn-back:hover {
+            background: #0056b3;
+        }
+
     .btn-home {
         background: #00aaff;
         color: #fff;
     }
 
-    .btn-edit, .btn-delete {
+        .btn-home:hover {
+            background: #0077cc;
+        }
+
+    .btn-edit {
+        background: #4caf50;
+        color: #fff;
+    }
+
+        .btn-edit:hover {
+            background: #388e3c;
+        }
+
+    .btn-delete {
         background: #f44336;
         color: #fff;
     }
+
+        .btn-delete:hover {
+            background: #d32f2f;
+        }
 
     .nav-buttons {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 10px;
+        margin-top: 20px; /* Increased margin */
     }
 
     .nav-button {
         background: rgba(255, 255, 255, 0.85);
-        padding: 10px;
+        padding: 12px; /* Increased padding */
         border-radius: 50%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         cursor: pointer;
