@@ -56,6 +56,8 @@ namespace testNettly.web.Models
 
     public class FeedbackViewModel
     {
+        internal object Score;
+
         public int Id { get; set; }
         public string Username { get; set; }  // Example property
         public string Comment { get; set; }  // Example property

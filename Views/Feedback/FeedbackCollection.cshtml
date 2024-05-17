@@ -11,14 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body, html {
-            height: 100%; 
+            height: 100%;
             margin: 0; /* Remove default margin */
         }
 
+        body {
+            background: none !important; /* Remove any inherited background */
+        }
+
         .feedback-page {
-            background: url('/images/background_image_with_man.png') no-repeat center center fixed;
-            background-size: cover; /* Cover the entire space */
-            min-height: 100vh; /* Minimum height to 100% of the viewport height */
+            background: url('/images/background_image_with_man.png') no-repeat center center fixed !important;
+            background-size: cover !important; /* Cover the entire space */
+            height: 100vh; /* Set height to 100% of the viewport height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,15 +30,17 @@
             flex-direction: column;
             text-align: center;
             font-family: "Avenir Next", "Avenir", sans-serif;
+            width: 100vw; /* Ensure full width */
+            overflow: hidden; /* Hide any overflow */
         }
 
         .feedback-container {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px 40px;
-            width: 500px;
-            max-width: 100%;
+            padding: 40px 60px;
+            width: 700px; /* Increase width */
+            max-width: 90%; /* Ensure responsiveness */
             text-align: center;
         }
 
@@ -53,6 +59,7 @@
         .header-icons {
             display: flex;
             gap: 15px;
+            align-items: center;
         }
 
             .header-icons i {
@@ -60,34 +67,47 @@
                 cursor: pointer;
             }
 
+        .search-bar {
+            display: none;
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: 15px;
+        }
+
+            .search-bar.active {
+                display: inline-block;
+            }
+
         h1 {
-            font-size: 28px;
+            font-size: 32px; /* Increase font size */
             font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 18px; /* Increase font size */
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .nps-scale {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
             .nps-scale button {
                 background: #ffffff;
                 border: 2px solid #cccccc;
                 border-radius: 50%;
-                width: 40px;
-                height: 40px;
+                width: 50px; /* Increase button size */
+                height: 50px; /* Increase button size */
                 cursor: pointer;
-                font-size: 16px;
+                font-size: 18px; /* Increase font size */
                 transition: 0.2s;
             }
 
@@ -99,24 +119,25 @@
 
         .feedback-textarea {
             width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
+            margin-bottom: 20px;
+            padding: 15px; /* Increase padding */
             border-radius: 10px;
             border: 2px solid #cccccc;
             resize: none;
-            height: 100px;
+            height: 120px; /* Increase height */
+            font-size: 16px; /* Increase font size */
         }
 
         .feedback-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
+            margin-top: 20px; /* Increase margin */
         }
 
         .btn {
             background: #007bff;
             color: #ffffff;
-            padding: 8px 15px;
+            padding: 10px 20px; /* Increase padding */
             border: none;
             border-radius: 20px;
             cursor: pointer;
@@ -131,6 +152,10 @@
             background: #f8f9fa;
             color: #333;
             border: 1px solid #cccccc;
+            padding: 10px 20px; /* Increase padding */
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
         }
 
             .btn-skip:hover {
@@ -139,18 +164,24 @@
 
         .btn-back {
             background: #f8f9fa;
-            .btn-back:hover
-
-        {
-            background: #e2e6ea;
+            color: #333;
+            border: 1px solid #cccccc;
+            padding: 10px 20px; /* Increase padding */
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
         }
+
+            .btn-back:hover {
+                background: #e2e6ea;
+            }
 
         .nps-descriptions {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #666;
-            font-size: 14px;
+            font-size: 16px; /* Increase font size */
         }
     </style>
 </head>
@@ -161,7 +192,9 @@
             <img src="/images/logo.png" alt="Nettly Logo" onclick="location.href='@Url.Action("Index", "Home")';">
             <div class="header-icons">
                 <!-- Search Icon -->
-                <i class="fas fa-search" onclick="showSearchBar();"></i>
+                <i class="fas fa-search" onclick="toggleSearchBar();"></i>
+                <!-- Search Bar -->
+                <input type="text" class="search-bar" id="searchBar" placeholder="Search...">
                 <!-- Home Icon -->
                 <i class="fas fa-home" onclick="location.href='@Url.Action("Index", "Home")';"></i>
                 <!-- Settings Icon -->
@@ -199,7 +232,7 @@
             <!-- Feedback Buttons -->
             <div class="feedback-buttons">
                 <button class="btn btn-submit">Submit</button>
-                <button class="btn btn-skip">Skip</button>
+                <button class="btn btn-skip" onclick="location.href='@Url.Action("Feedback", "Feedback")'">Skip</button>
             </div>
         </div>
     </div>
@@ -213,16 +246,18 @@
             });
         });
 
-        // Additional JavaScript for submitting and skipping feedback
-    </script>
-
-    <script>
-        // Optional: JavaScript for Search Bar (to be implemented)
-        function showSearchBar() {
-            // Logic to show or focus a search input field
+        // Toggle Search Bar
+        function toggleSearchBar() {
+            const searchBar = document.getElementById('searchBar');
+            if (searchBar.classList.contains('active')) {
+                searchBar.classList.remove('active');
+                searchBar.style.display = 'none';
+            } else {
+                searchBar.classList.add('active');
+                searchBar.style.display = 'inline-block';
+                searchBar.focus();
+            }
         }
     </script>
-
-
 </body>
 </html>

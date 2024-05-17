@@ -2,22 +2,104 @@
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    <img src="/images/logo.png" alt="Nettly Logo" style="width: 600px; margin-bottom: 80px;">
-    <h1 style="font-weight: bolder;">Welcome to Nettly!</h1>
-    <p>
-        At Nettly, we streamline the process of scheduling and managing appointments, making it simple and efficient for both businesses and their clients. Our advanced booking system is designed to enhance user experience by offering a comprehensive suite of tools that facilitate easy booking, timely reminders, and efficient calendar management. Whether you're a small business owner or a large corporation, Nettly is tailored to meet your specific needs, helping you stay organized and focused on what really matters – your clients and their satisfaction. Embrace the ease of Nettly and transform the way you manage your appointments today!
-    </p>
-    <div class="row mt-4">
-        <div class="col">
-            <form action="@Url.Action("SignIn", "Home")" method="get">
-                <button type="submit" class="btn btn-primary">Sign In</button>
-            </form>
-        </div>
-        <div class="col">
-            <form action="@Url.Action("SignUp", "Home")" method="get">
-                <button type="submit" class="btn btn-secondary">Sign Up</button>
-            </form>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0; /* Remove default margin */
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            max-width: 900px; /* Increased max-width */
+            width: 90%;
+        }
+
+            .container img {
+                width: 500px; /* Increased image width */
+                max-width: 100%;
+                margin-bottom: 50px; /* Adjusted margin */
+            }
+
+            .container h1 {
+                font-weight: bolder;
+                font-size: 48px; /* Increased font size */
+                margin-bottom: 30px;
+            }
+
+            .container p {
+                font-size: 22px; /* Increased font size */
+                line-height: 1.8; /* Increased line height */
+                margin-bottom: 50px; /* Adjusted margin */
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 20px; /* Increased font size */
+            border-radius: 30px; /* Adjusted border radius */
+            transition: background-color 0.3s;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 20px; /* Increased font size */
+            border-radius: 30px; /* Adjusted border radius */
+            transition: background-color 0.3s;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Increased gap between buttons */
+        }
+
+        .col {
+            flex: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/logo.png" alt="Nettly Logo">
+        <h1>Welcome to Nettly!</h1>
+        <p>
+            At Nettly, we streamline the process of scheduling and managing appointments, making it simple and efficient for both businesses and their clients. Our advanced booking system is designed to enhance user experience by offering a comprehensive suite of tools that facilitate easy booking, timely reminders, and efficient calendar management. Whether you're a small business owner or a large corporation, Nettly is tailored to meet your specific needs, helping you stay organized and focused on what really matters – your clients and their satisfaction. Embrace the ease of Nettly and transform the way you manage your appointments today!
+        </p>
+        <div class="row">
+            <div class="col">
+                <form action="@Url.Action("SignIn", "Home")" method="get">
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
+            </div>
+            <div class="col">
+                <form action="@Url.Action("SignUp", "Home")" method="get">
+                    <button type="submit" class="btn btn-secondary">Sign Up</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</body>
+</html>
