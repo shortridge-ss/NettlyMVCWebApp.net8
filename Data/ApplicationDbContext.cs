@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using NettlyMVCWebApp.web.Data;
+using testNettly.web.Models;
 
 namespace testNettly.web.Data
 {
@@ -15,6 +16,7 @@ namespace testNettly.web.Data
 
         public DbSet <Appointment> Appointments { get; set; }
         public DbSet <Feedback> Feedbacks { get; set; }
+        public DbSet<testNettly.web.Models.User> User { get; set; } = default!;
         
     }
 

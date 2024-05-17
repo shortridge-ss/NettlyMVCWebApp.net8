@@ -1,0 +1,21 @@
+﻿@page
+@model NettlyMVCWebApp.web.Views.Account.SignUpModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="signup-container text-center">
+    <div class="signup-form">
+        <h2>Create an account</h2>
+        <form method="post" asp-action="SignUp" asp-controller="Account">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <!-- Add other form fields for last name, email, mobile number, password, etc. -->
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+</div>

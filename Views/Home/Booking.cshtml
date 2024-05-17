@@ -254,7 +254,9 @@
             <!-- Sample date navigation -->
             @for (var date = DateTime.Today; date < DateTime.Today.AddDays(7); date = date.AddDays(1))
             {
-                <span class="date-item">@date.ToString("dd MMM")</span>
+                <button class="date-item" aria-label="@date.ToString("dd MMM")">@date.ToString("dd MMM")</button>
+    
+                //<button class="date-item">@date.ToString("dd MMM")</button>
             }
         </div>
     </div>
