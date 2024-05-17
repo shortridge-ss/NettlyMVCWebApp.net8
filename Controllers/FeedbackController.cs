@@ -13,7 +13,7 @@ public class FeedbackController : Controller
     }
 
     // Show form for new feedback submission
-    public IActionResult FeedbackCollection()
+    public IActionResult FeedbackCollection()   
     {
         return View(new FeedbackViewModel()); // Return a new ViewModel for data binding
     }

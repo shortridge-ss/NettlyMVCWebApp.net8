@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using NettlyMVCWebApp.web.Data
+
+@inject SignInManager<UserProfile> SignInManager
+@inject UserManager<UserProfile> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
