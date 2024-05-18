@@ -16,7 +16,8 @@ namespace testNettly.web.Data
 
         public DbSet <Appointment> Appointments { get; set; }
         public DbSet <Feedback> Feedbacks { get; set; }
-        public DbSet<testNettly.web.Models.User> User { get; set; } = default!;
+        public DbSet <UserProfile> AspNetUsers { get; set; }
+        public DbSet<testNettly.web.Models.User> User { get; set; } 
         
     }
 

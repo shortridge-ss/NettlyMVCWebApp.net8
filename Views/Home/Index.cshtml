@@ -90,14 +90,16 @@
         </p>
         <div class="row">
             <div class="col">
-                <form action="@Url.Action("SignIn", "Home")" method="get">
+               @* <form action="@Url.Action("SignIn", "Home")" method="get">
                     <button type="submit" class="btn btn-primary">Sign In</button>
-                </form>
+                </form>*@
+                <a asp-page="/Account/Login" asp-area="Identity">Sign In</a>
             </div>
             <div class="col">
-                <form action="@Url.Action("SignUp", "Home")" method="get">
+                @* <form action="@Url.Action("SignUp", "Home")" method="get">
                     <button type="submit" class="btn btn-secondary">Sign Up</button>
-                </form>
+                </form> *@
+                <a asp-page="/Account/Register" asp-area="Identity">Sign Up</a>
             </div>
         </div>
     </div>
